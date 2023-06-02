@@ -1,0 +1,47 @@
+{% extends 'superviser.html' %}{% load static %}
+
+{% block sidebar %}
+<div class="container  my-auto">
+       <form method="POST" >
+        <div class="form mx-auto   shadow-lg p-3 mb-5 bg-body rounded  mt-2 ms-1  w-100 h-100  position-relative ">
+         {% csrf_token %}
+         <div class="container text-center  ">
+          <div class="row  ">
+            <div class="col-8  ">
+              <div class=' w-100 h-100 map shadow bg-body rounded'  id="mapid" ></div>
+              <div class="">
+              <input type="hidden" id="cord" name="cord" />
+               </div>
+            </div>
+            <div class="col-4 text-center">
+                <h2 class='text-success text-center'>creation d'un parcelle</h2>
+                <div class="input-group mb-3">
+                  <select id = "id_proj" name="id_proj" class="form-select  form-select-lg bg-light fs-6 shadow  mb-5 mt-5 bg-body rounded" aria-label="Default select example">
+                    <option  selected>choisir votre project</option>
+                    {% for nom_project in project  %}
+                          
+                    <option value={{nom_project.id}}>{{nom_project.nom}}</option>
+                    {% endfor %}
+                  </select>
+                 </div>
+            
+                 <div class="input-group mb-3">
+                   <input type="text" id = "nom"  name = "nom" class="form-control form-control-lg bg-light fs-6 shadow p-3 mb-5 bg-body rounded"  placeholder="nom parcelle">
+                 </div>
+                  <button class="btn btn-success shadow p-3 mb-5 centre " id="save-polygon-btn">Save Polygon</button>
+          
+
+
+
+
+
+    </div>
+      </div>
+        </div>
+        </form>
+      </div>
+   
+    <script src="{% static 'js/map.js' %}" ></script>
+    
+{% endblock sidebar %}
+

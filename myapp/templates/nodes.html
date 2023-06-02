@@ -1,0 +1,53 @@
+{% extends 'superviser.html' %}{% load static %}
+
+{% block sidebar %}
+<div class="container  text-center" >
+<form method="POST" class=' container text-center mx-auto   shadow-lg p-3 mb-5 bg-body rounded  mt-2 ms-1  w-100 h-100  position-relative '>
+        
+    {% csrf_token %}
+   
+      <div class="row ">
+       <div class="col-8">
+         <div class='map shadow p-3 mb-5 bg-body rounded w-100 h-100' id="idmap" ></div>
+         <div class="">
+         <input type="hidden" id="polygone" name="polygone" value="{{ polys }}"/>
+         <input type="hidden" id="points" name="points" />
+         <input type="hidden" id="nodes" name="nodes" value="{{ nodes }}"/>
+         
+          </div>
+       </div>
+       <div class="col-4 centre">
+         <h2 class='text-success'>création d'un noeud</h2>
+         <div class="input-group mb-1">
+          <select id = "id_poly" name="id_poly" class="form-select  form-select-lg bg-light fs-6 shadow  mb-5 mt-3 bg-body rounded" aria-label="Default select example">
+            <option selected>choisir votre parcelle </option>
+            {% for poly in id_poly  %}
+        
+           
+            <option value={{poly.id}}>{{poly.nom}} {{poly.pk}}</option>
+            {% endfor %}
+          </select>
+        </div>
+       
+         <div class="input-group mb-1">
+           <input type="text" id = "nom"  name = "nom" class="form-control form-control-lg bg-light fs-6 shadow  mb-5 bg-body rounded"  placeholder="nom noeud">
+         </div>
+         <div class="input-group mb-1">
+          <select id = "ref" name="ref" class="form-select text-muted form-select-lg bg-light fs-6 shadow  mb-5  bg-body rounded" aria-label="Default select example">
+            <option selected>choisir référence noeud</option>
+            
+            
+            <option value='eui-70b3d57ed005a5c4'>eui-70b3d57ed005a5c4</option>
+            <option value='eui-70b3d57ed005c92e'>eui-70b3d57ed005c92e</option>
+           
+          </select>
+        </div>
+          <button class="btn btn-success shadow p-3 mb-5 " id="save-polygon-btn">enregistrer </button>
+          <a href="{% url 'all_project' %}" type="submit"  class="btn btn-success shadow p-3 mb-5 ">terminer</a>
+         </div>
+       </form>
+      </div>
+    
+    <script src="{% static 'js/node.js' %}" ></script>
+    
+{% endblock sidebar %}

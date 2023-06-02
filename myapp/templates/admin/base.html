@@ -1,0 +1,28 @@
+{% extends 'admin/base.html' %} {% block extrahead %}{{ block.super }}
+<style>
+  :root {
+    --primary: #5CB874;
+    --secondary: #5CB874;
+    --accent: white;
+    --primary-fg: white;
+    --header-color: white;
+    --darkened-bg: white;
+  }
+  #logout-form{
+    text
+  }
+  
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const myDiv = document.getElementById('logout-form');
+    const customButton = document.createElement('a'); // Changed from button to anchor tag
+    customButton.textContent = '/ DASHBORD'; // Removed '/' from the text content
+    customButton.setAttribute('href', "{% url 'dashbord' %}");
+    myDiv.appendChild(customButton);
+  });
+</script>
+
+
+
+{% endblock %}

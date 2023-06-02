@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style-login.css">
+    <title>login</title>
+  </head>
+
+  <link rel="stylesheet" href="{% static 'style-choix.css' %}">
+  <body>
+   
+     <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><img src="../static/images/horizontal_green.png" class="img-fluid" alt=""></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          
+          <li><a class="nav-link scrollto " href="{% url 'signup' %}">signup</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'login' %}">login</a></li>
+      
+          
+          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  
+<body class="bg-img" >
+
+ 
+ 
+    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+     <div class="row justify-content-center align-items-center">
+       <div class="col text-center">
+         <div class="card" style="width: 18rem; height: 30rem;">
+           <img src="{% static 'images/clientss.png' %}" class="card-img-top mx-auto d-block">
+           <br>
+           <div class="card-body">
+             <h5 class="card-title" style="color:  #5cb874;">connect as client</h5>
+             <p class="card-text text-center">Description of Client privileges</p><br>
+             <a href="{% url 'compte' 'client'  %}" class="btn btn-dark  mx-auto d-block" style=' background-color:  #5cb874; color:white; font-size: 15px; border:#5cb874'  >connection</a>
+           </div>
+         </div>
+       </div>
+   
+       <div class="col text-center">
+        <div class="card" style="width: 18rem; height: 30rem;">
+          <img src="{% static 'images/superviser.png' %}" class="card-img-top mx-auto d-block">
+          <br>
+          <div class="card-body">
+            <h5 class="card-title" style="color: #5cb874;">connect as supervisor</h5>
+            <p class="card-text text-center">Description of supervisor privileges</p><br>
+            <a href="{% url 'compte' 'supervisor'  %}" class="btn btn-dark  mx-auto d-block" style=' background-color: #5cb874 ; color:white; font-size: 15px; border:#5cb874'  >connection</a>
+          </div>
+        </div>
+      </div>
+   
+     </div>
+    </div>
+   </body>

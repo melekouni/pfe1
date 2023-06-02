@@ -1,0 +1,59 @@
+{% extends 'superviser.html' %}{% load static %} {% block sidebar %}
+<div class="container  my-auto">
+  <form method="POST" >
+   <div class="container text-center mx-auto   shadow-lg   bg-body rounded  mt-2 ms-1  w-100 h-100  position-relative ">
+    {% csrf_token %}
+    
+     <div class="row  ">
+       <div class="col-8  ">
+        <div
+        class="map  shadow  mb-3 bg-body rounded"
+        id="map"
+        style='height:450px; margin-top:10px; margin-bottom:0px  '></div>
+        <input
+      type="hidden"
+      id="points"
+      name="points"
+      value="{{polys}}"
+    />
+    <input
+      type="hidden"
+      id="point"
+      name="point"
+      value="{{points}}"
+    />
+    <input
+    type="text"
+    id="idn"
+    name="idn"
+    value="{{data_list}}"
+  />
+    <input
+    type="hidden"
+    id="pol"
+    name="pol"
+    value="{{pol}}"
+  />
+    <input type="hidden" id="cord" name="cord" />
+       </div>
+       <div class="col-4 text-start">
+          <h5 class=" badge  bg-success bg-gradient text-wrap fw-bold" style="width: 6rem;">temperature:</h5><br>
+          <h5 class="badge   bg-success text-wrap "  style="width: 6rem;">      humidity   :</h5><br>
+          <h5 class="badge   bg-success text-wrap "  style="width: 6rem;">      rssi       :</h5><br>
+          <h5 class="badge   bg-success text-wrap "  style="width: 6rem;">      snr        :</h5><br>
+        </div>
+
+
+
+
+
+     </div>
+   
+   </div>
+   </form>
+ </div>
+
+
+<script src="{% static 'js/map2.js' %}"></script>
+
+{% endblock sidebar %}

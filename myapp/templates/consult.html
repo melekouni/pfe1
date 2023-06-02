@@ -1,0 +1,53 @@
+{% extends 'superviser.html' %}{% load static %}
+
+{% block sidebar %}
+
+<div class="container my-auto ">
+  <form  class='form shadow-lg p-3 mb-5 bg-body rounded mt-2 ms-2 w-100                                                                                                                                                                                                                   h-100 position-relative' style='margin-left:150px'>
+    <center>
+        <h1 class='text-success'>List of Projects</h1>
+        <br>
+        <div style='overflow-y: scroll;  max-height: 365px;'> 
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-success fst-italic ">
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">REGION</th>
+                        <th scope="col">date debut</th>
+                        <th scope="col">date fin</th>
+                       
+                        <th scope="col">CONSULT</th>
+                        <th scope="col">supprimer</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in project_list %}
+                    <tr>
+                        <td class=" fs-6">{{ project.id }}</td>
+                        <td  class=" fs-6" >{{ project.nom }}</td>
+                        <td  class=" fs-6">{{ project.region }}</td>
+                        <td  class=" fs-6">{{ project.dat_deb }}</td>
+                        <td  class=" fs-6">{{ project.dat_fin }}</td>
+                      
+                        <td ><a type="button" href="{% url 'get_polygone' project.id %}" class="btn btn-outline-success btn-rounded btn-sm  fst-italic">Consult</a></td>
+                        <td >
+                            <form action="{% url 'delete' project.id %}" method="POST" >
+                                {% csrf_token %}
+                            <input type="submit"  class="btn btn-outline-danger btn-rounded btn-sm  fst-italic" value='supprimer'>
+                        </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </center>
+</form>
+
+</div>
+
+
+{% endblock sidebar %}
+
